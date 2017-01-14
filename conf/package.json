@@ -1,0 +1,36 @@
+{
+  "name": "civisurbs",
+  "version": "0.0.0",
+  "description": "A collaborative sim-city-like game",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phijaen/civisurbs.git"
+  },
+  "keywords": [
+    "civisurbs",
+    "civis",
+    "urbs",
+    "sim",
+    "city",
+    "simcity",
+    "game",
+    "simulation"
+  ],
+  "author": "phijaen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phijaen/civisurbs/issues"
+  },
+  "homepage": "https://github.com/phijaen/civisurbs#readme",
+  "devDependencies": {
+    "typescript": "~2.1.0",
+    "gulp" : "~3.9.0",   
+    "http-server" : "~0.9.0",
+    "strip-json-comments" : "~2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gulp": "gulp"
+  }
+}
