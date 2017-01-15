@@ -14,6 +14,13 @@ Development has just started ! It will be a long way ahead toward the Civis Urbs
 
 # Installation
 
-\# npm install -g gulp typescript concurrently http-server  
-\$ npm install
-\$ npm start
+```sh
+# as root
+npm install -g gulp typescript concurrently http-server
+```
+
+```sh
+# as user
+npm install
+npm start
+```
