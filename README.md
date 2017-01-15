@@ -11,3 +11,9 @@ The targeted game objectives are :
 For the first releases the game will target a simple isometric rendering engine.
 
 Development has just started ! It will be a long way ahead toward the Civis Urbs.
+
+# Installation
+
+\# npm install -g gulp typescript concurrently http-server  
+\$ npm install
+\$ npm start
