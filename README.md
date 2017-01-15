@@ -22,5 +22,6 @@ npm install -g gulp typescript concurrently http-server
 ```sh
 # as user
 npm install
+npm install -D @types/node
 npm start
 ```
