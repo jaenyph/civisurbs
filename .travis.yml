@@ -14,3 +14,6 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 install:
   - npm install
+  - npm run build-client
+script:
+  - npm run lint-client
