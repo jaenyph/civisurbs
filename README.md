@@ -1,6 +1,6 @@
 # Civis Urbs
 ### Status
-[![Build Status](https://api.travis-ci.org/phijaen/civisurbs.svg?branch=feature/client-angular-init)](https://travis-ci.org/phijaen/civisurbs)
+[![Build Status](https://api.travis-ci.org/jaenyph/civisurbs.svg?branch=feature/client-angular-init)](https://travis-ci.org/jaenyph/civisurbs)
 
 Civis Urbs is intended to be a multiplayer city simulation game (simcity-like).  
 It is in early development phase and not yet usable.  

@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phijaen/civisurbs.git"
+    "url": "git+https://github.com/jaenyph/civisurbs.git"
   },
   "keywords": [
     "civisurbs",
@@ -17,12 +17,12 @@
     "game",
     "simulation"
   ],
-  "author": "phijaen",
+  "author": "jaenyph",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/phijaen/civisurbs/issues"
+    "url": "https://github.com/jaenyph/civisurbs/issues"
   },
-  "homepage": "https://github.com/phijaen/civisurbs#readme",
+  "homepage": "https://github.com/jaenyph/civisurbs#readme",
   "engines": {
     "node": ">=4.0.0",
     "npm": ">=3.0.0"
