@@ -22,7 +22,8 @@ gulp.task('import-client-libs', [
     'import-systemjs',
     'import-corejs-shim',
     'import-zonejs',
-    'import-rxjs'],
+    'import-rxjs',
+    'import-phaser'],
     () => {}
 );
 
@@ -89,6 +90,13 @@ gulp.task('import-zonejs', () => {
     return gulp.src('node_modules/zone.js/dist/zone.min.js', {base: __dirname})
         .pipe(rename("zone.min.js"))
         .pipe(gulp.dest(`${__dirname}/client/scripts/lib/zonejs`));
+});
+
+gulp.task('import-phaser', () => {
+    var rename = require("gulp-rename");
+    return gulp.src('node_modules/pixi.js/dist/p2.min.js', {base: __dirname})
+        .pipe(rename("p2.min.js"))
+        .pipe(gulp.dest(`${__dirname}/client/scripts/lib/phaser`));
 });
 
 gulp.task('import-rxjs', () => {
