@@ -55,7 +55,7 @@
   },
   "scripts": {
     "start": "npm run build-client && concurrently \"npm run tsw-client\" \"npm run run-client\" ",
-    "build-client" : "tsc --project client",
+    "build-client" : "gulp import-client-libs && tsc --project client",
     "tsw-client" : "tsc --project client -w",
     "run-client" : "http-server client",
     "lint-client" : "tslint ./client/scripts/app/**/*.ts -t verbose --config ./client/tslint.json",
