@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/phijaen/civisurbs.git"
+    "url": "git+https://github.com/jaenyph/civisurbs.git"
   },
   "keywords": [
     "civisurbs",
@@ -17,21 +17,48 @@
     "game",
     "simulation"
   ],
-  "author": "phijaen",
+  "author": "jaenyph",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/phijaen/civisurbs/issues"
+    "url": "https://github.com/jaenyph/civisurbs/issues"
   },
-  "homepage": "https://github.com/phijaen/civisurbs#readme",
+  "homepage": "https://github.com/jaenyph/civisurbs#readme",
+  "engines": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
+  "dependencies": {
+    "@angular/common": "~2.4.0",
+    "@angular/compiler": "~2.4.0",
+    "@angular/core": "~2.4.0",
+    "@angular/forms": "~2.4.0",
+    "@angular/http": "~2.4.0",
+    "@angular/platform-browser": "~2.4.0",
+    "@angular/platform-browser-dynamic": "~2.4.0",
+    "@angular/router": "~3.4.0",
+    "angular-in-memory-web-api": "~0.2.4",
+    "core-js": "~2.4.0",
+    "rxjs": "~5.0.0",
+    "systemjs": "~0.19.0",
+    "zone.js": "~0.7.0"
+  },
   "devDependencies": {
+    "@types/node": "^7.0.0",
+    "concurrently": "~3.1.0",
+    "del": "~2.2.0",
+    "gulp": "~3.9.0",
+    "gulp-rename": "~1.2.0",
+    "gulp-uglify": "~2.0.0",
+    "http-server": "~0.9.0",
     "typescript": "~2.1.0",
-    "gulp" : "~3.9.0",
-    "gulp-typescript" : "~3.1.0",
-    "gulp-uglify" : "~2.0.0",
-    "del" : "~2.2.0",
-    "http-server" : "~0.9.0"
+    "tslint": "~3.15.0"
   },
   "scripts": {
+    "start": "npm run build-client && concurrently \"npm run tsw-client\" \"npm run run-client\" ",
+    "build-client" : "gulp import-client-libs && tsc --project client",
+    "tsw-client" : "tsc --project client -w",
+    "run-client" : "http-server client",
+    "lint-client" : "tslint ./client/scripts/app/**/*.ts -t verbose --config ./client/tslint.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }

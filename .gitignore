@@ -1,3 +1,16 @@
+# Discard the npm repository :
 node_modules
+
+# Discard any npm log :
 *.log
-client/built/**
+
+# Discard the output of tsc :
+client/scripts/app/**/*.js
+client/scripts/app/**/*.js.map
+
+# Discard the client libraries imported from npm :
+client/scripts/lib/angular/**
+client/scripts/lib/corejs/**
+client/scripts/lib/zonejs/**
+client/scripts/lib/systemjs/**
+client/scripts/lib/rxjs/**
