@@ -8,6 +8,9 @@ node_modules
 client/scripts/app/**/*.js
 client/scripts/app/**/*.js.map
 
+# Discard vscode config
+.vscode/**
+
 # Discard the client libraries imported from npm :
 client/scripts/lib/angular/**
 client/scripts/lib/corejs/**
