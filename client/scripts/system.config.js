@@ -24,7 +24,10 @@
 
       // other libraries
       'rxjs':                      'libs:rxjs',
-      'angular-in-memory-web-api': 'libs:angular-in-memory-web-api/in-memory-web-api.umd.min.js'
+      'angular-in-memory-web-api': 'libs:angular-in-memory-web-api/in-memory-web-api.umd.min.js',
+      'phaser' : 'libs:phaser/phaser.min.js',
+      'phaser-p2' : 'libs:phaser/p2.min.js',
+      'phaser-pixi' : 'libs:phaser/pixi.min.js'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
@@ -34,6 +37,14 @@
       },
       rxjs: {
         defaultExtension: 'js'
+      },
+      phaser: {
+        defaultExtension: 'js'
+      }
+    },
+    shim:{
+      'phaser':{
+        exports:'Phaser'
       }
     }
   });

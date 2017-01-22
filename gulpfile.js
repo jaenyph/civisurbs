@@ -94,8 +94,8 @@ gulp.task('import-zonejs', () => {
 
 gulp.task('import-phaser', () => {
     var rename = require("gulp-rename");
-    return gulp.src('node_modules/pixi.js/dist/p2.min.js', {base: __dirname})
-        .pipe(rename("p2.min.js"))
+    return gulp.src('node_modules/phaser/build/phaser.min.js', {base: __dirname})
+        .pipe(rename("phaser.min.js"))
         .pipe(gulp.dest(`${__dirname}/client/scripts/lib/phaser`));
 });
 

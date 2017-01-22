@@ -1,15 +1,27 @@
 <html>
-    <head>
-        <script src="scripts/lib/systemjs/system.min.js"></script>
-        <script src="scripts/system.config.js"></script>
-        <!-- Polyfill(s) for older browsers -->
-        <script src="scripts/lib/corejs/shim.min.js"></script>
-        <script src="scripts/lib/zonejs/zone.min.js"></script>
-        <script>
-            System.import('app').catch(function(err){ console.error(err); });
-        </script>
-    </head>
-    <body>
-        <my-app>Loading AppComponent...</my-app>
-    </body>
+
+<head>
+    <script src="scripts/lib/systemjs/system.min.js"></script>
+    <script src="scripts/system.config.js"></script>
+    <!-- Polyfill(s) for older browsers -->
+    <script src="scripts/lib/corejs/shim.min.js"></script>
+    <script src="scripts/lib/zonejs/zone.min.js"></script>
+    <script>
+        System.import('app').catch(function (err) {
+            if(err.__zone_symbol__error){
+                //display a zone error
+                console.error("Zone error :");
+                console.error(err.toString());
+            }
+            else{
+                console.error(err, err.toString());
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <my-app>Loading AppComponent...</my-app>
+</body>
+
 </html>
