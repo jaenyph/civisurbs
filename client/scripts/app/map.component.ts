@@ -15,12 +15,22 @@ export class MapComponent {
     private _game: Phaser.Game;
 
     constructor() {
+        let game: Phaser.Game;
 
-        // tslint:disable-next-line:quotemark
-        console.info("Phaser", Phaser);
-        this._game = new Phaser.Game(640, 480, Phaser.AUTO);
-        console.info("game", this._game);
-        this._game.resolution
+        function preload() {
+            game.add.text(100, 100, 'It works', { fill: 'green' });
+            // game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+            // game.scale.parentIsWindow = true;
+        }
 
+        function create() {
+        }
+
+        function update() {
+        }
+
+        game = new Phaser.Game(640, 480, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+
+        this._game = game;
     }
 }
