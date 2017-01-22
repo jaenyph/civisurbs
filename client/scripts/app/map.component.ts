@@ -5,6 +5,7 @@
 import { Component } from '@angular/core';
 
 import 'phaser';
+import 'phaser-plugin-saveCpu';
 
 @Component({
     selector: 'cu-map',
@@ -13,14 +14,19 @@ import 'phaser';
 export class MapComponent {
     status = 'loaded';
     private _game: Phaser.Game;
+    private _saveCpu: Phaser.Plugin.SaveCPU;
 
     constructor() {
         let game: Phaser.Game;
 
+        function init() {
+            this.game.saveCPU = this._saveCpu = this.game.plugins.add(Phaser.Plugin.SaveCPU) as Phaser.Plugin.SaveCPU;
+            this._saveCpu.renderOnFPS = 9;
+            this._saveCpu.renderOnPointerChange = false;
+        }
+
         function preload() {
             game.add.text(100, 100, 'It works', { fill: 'green' });
-            // game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
-            // game.scale.parentIsWindow = true;
         }
 
         function create() {
@@ -29,7 +35,17 @@ export class MapComponent {
         function update() {
         }
 
-        game = new Phaser.Game(640, 480, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+        game = new Phaser.Game(
+            640,
+            480,
+            Phaser.AUTO,
+            '',
+            {
+                init: init,
+                preload: preload,
+                create: create,
+                update: update
+            });
 
         this._game = game;
     }
