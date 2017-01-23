@@ -197,199 +197,91 @@
         </struct>
         <key>individualSpriteSettings</key>
         <map type="IndividualSpriteSettingsMap">
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/bridgeEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/bridgeNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/water.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachCornerNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterCornerNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/bridgeEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/bridgeNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/crossroad.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/dirt.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/dirtHigh.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/grass.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillCornerEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillCornerNW.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillCornerSE.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillCornerWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillRoadEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillRoadNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillRoadSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillRoadWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/hillWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lot.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotCornerEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotCornerNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotCornerSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotCornerWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotExitEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotExitNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotExitSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotExitWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotPark.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/lotWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadCornerES.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadCornerNE.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadCornerNW.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadCornerWS.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadEndEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadEndNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadEndSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadEndWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadTEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadTNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadTSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/roadTWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/treeConiferShort.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/treeConiferTall.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/treeShort.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/treeShort_autumn.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/treeTall.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/treeTall_autumn.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/water.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachCornerEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachCornerNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachCornerSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachCornerWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterBeachWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterCornerEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterCornerNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterCornerSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterCornerWest.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterEast.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterNorth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterSouth.png</key>
+            <key type="filename">../../../../../Downloads/roadTiles_v2_70x40/waterWest.png</key>
             <struct type="IndividualSpriteSettings">
                 <key>pivotPoint</key>
                 <point_f>0.5,0.5</point_f>
                 <key>scale9Enabled</key>
                 <false/>
                 <key>scale9Borders</key>
-                <rect>25,16,50,32</rect>
+                <rect>18,10,35,20</rect>
                 <key>scale9Paddings</key>
-                <rect>25,16,50,32</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/crossroad.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/grass.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillCornerNW.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillCornerSE.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillCornerWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotCornerEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotPark.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadCornerES.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadCornerNE.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadCornerNW.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadCornerWS.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadEndEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadEndNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadEndSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadEndWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadTEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadTNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadTSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/roadTWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachCornerEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachCornerWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterCornerEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterCornerWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterWest.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>25,16,50,33</rect>
-                <key>scale9Paddings</key>
-                <rect>25,16,50,33</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/dirt.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>25,15,50,29</rect>
-                <key>scale9Paddings</key>
-                <rect>25,15,50,29</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/dirtHigh.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lot.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotCornerNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotCornerSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotCornerWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotExitEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotExitNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotExitSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/lotExitWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachCornerSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterBeachWest.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/waterCornerSouth.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>25,17,50,33</rect>
-                <key>scale9Paddings</key>
-                <rect>25,17,50,33</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillCornerEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillNorth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillRoadEast.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillRoadNorth.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>25,20,50,40</rect>
-                <key>scale9Paddings</key>
-                <rect>25,20,50,40</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillRoadSouth.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/hillRoadWest.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>25,16,51,33</rect>
-                <key>scale9Paddings</key>
-                <rect>25,16,51,33</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/treeConiferShort.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>4,9,7,18</rect>
-                <key>scale9Paddings</key>
-                <rect>4,9,7,18</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/treeConiferTall.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>5,12,10,24</rect>
-                <key>scale9Paddings</key>
-                <rect>5,12,10,24</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/treeShort.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/treeShort_autumn.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>3,8,6,17</rect>
-                <key>scale9Paddings</key>
-                <rect>3,8,6,17</rect>
-                <key>scale9FromFile</key>
-                <false/>
-            </struct>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/treeTall.png</key>
-            <key type="filename">../../../../../Downloads/roadTiles_v2/png/treeTall_autumn.png</key>
-            <struct type="IndividualSpriteSettings">
-                <key>pivotPoint</key>
-                <point_f>0.5,0.5</point_f>
-                <key>scale9Enabled</key>
-                <false/>
-                <key>scale9Borders</key>
-                <rect>3,11,6,22</rect>
-                <key>scale9Paddings</key>
-                <rect>3,11,6,22</rect>
+                <rect>18,10,35,20</rect>
                 <key>scale9FromFile</key>
                 <false/>
             </struct>
         </map>
         <key>fileList</key>
         <array>
-            <filename>../../../../../Downloads/roadTiles_v2/png</filename>
+            <filename>../../../../../Downloads/roadTiles_v2_70x40</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

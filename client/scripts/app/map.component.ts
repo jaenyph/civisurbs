@@ -16,7 +16,9 @@ export class MapComponent {
 
     private _game: Phaser.Game;
     private _isoGroup: any;
-    private _cursorPos: any;
+    private _cursorPos: Phaser.Plugin.Isometric.Point3;
+    private _cursorKeys: Phaser.CursorKeys;
+    private _isometric: Phaser.Plugin.Isometric.Projector;
 
     constructor() {
         this._game = new Phaser.Game(
@@ -48,25 +50,31 @@ export class MapComponent {
         saveCpu.renderOnFPS = 9;
         saveCpu.renderOnPointerChange = false;
 
-        game.load.atlasJSONHash('tileset', './assets/roadTiles/atlas.png', 'assets/roadTiles/atlas.json');
-
+        game.load.atlasXML('landscape', './assets/landscape/landscapeTiles_sheet.png', './assets/landscape/landscapeTiles_sheet.xml');
 
         game.time.advancedTiming = true;
 
         // Add and enable the plug-in.
         game.plugins.add(new Phaser.Plugin.Isometric(game) as any);
 
+        this._isometric = this._game['iso'];
+
         // This is used to set a game canvas-based offset for the 0, 0, 0 isometric coordinate - by default
         // this point would be at screen coordinates 0, 0 (top left) which is usually undesirable.
-        game['iso'].anchor.setTo(0.5, 0.1);
+        this._isometric.anchor.setTo(0.5, 0.1);
     }
 
     private gameCreate() {
+
+        this._cursorKeys = this._game.input.keyboard.createCursorKeys();
+        const game = this._game;
+        game.world.setBounds(0, 0, 1920, 1920);
+
         // Create a group for our tiles.
         this._isoGroup = this._game.add.group();
 
         // we won't really be using IsoArcade physics, but I've enabled it anyway so the debug bodies can be seen
-        this._game.physics.startSystem(Phaser.Plugin.Isometric.ISOARCADE);
+        game.physics.startSystem(Phaser.Plugin.Isometric.ISOARCADE);
         this._isoGroup.enableBody = true;
         this._isoGroup.physicsBodyType = Phaser.Plugin.Isometric.ISOARCADE;
 
@@ -79,7 +87,8 @@ export class MapComponent {
 
     private gameRender() {
         const game = this._game;
-        game.debug.text('Move your mouse around!', 2, 36, '#ffffff');
+        const c = this._cursorPos;
+        game.debug.text(`Move your mouse around! (${c.x},${c.y})`, 2, 36, '#ffffff');
         game.debug.text(game.time.fps as any || '--', 2, 14, '#a7aebe');
     }
 
@@ -90,85 +99,80 @@ export class MapComponent {
         // you have to specify a z position manually, as this cannot be easily
         // determined from the 2D pointer position without extra trickery.
         // By default, the z position is 0 if not set.
-        game['iso'].unproject(game.input.activePointer.position, this._cursorPos);
+        this._isometric.unproject(game.input.activePointer.position, this._cursorPos);
 
         // Loop through all tiles and test to see if the 3D position from above
         // intersects with the automatically generated IsoSprite tile bounds.
-        this._isoGroup.forEach((tile: any) => {
-            const inBounds = tile.isoBounds.containsXY(this._cursorPos.x, this._cursorPos.y);
-            // If it does, do a little animation and tint change.
-            if (!tile.selected && inBounds) {
-                tile.selected = true;
+        this._isoGroup.forEach((tile: Phaser.Plugin.Isometric.IsoSprite) => {
+            const inBounds = tile.isoBounds['containsXY'](this._cursorPos.x, this._cursorPos.y);
+            const meta = tile['meta'] || (tile['meta'] = {});
+            if (!meta.selected && inBounds) {
+                // If it does, do a little animation and tint change.
+                tile['meta'].selected = true;
                 tile.tint = 0x86bfda;
-                game.add.tween(tile).to({ isoZ: 4 }, 200, Phaser.Easing.Quadratic.InOut, true);
-            }
-            // If not, revert back to how it was.
-            else if (tile.selected && !inBounds) {
-                tile.selected = false;
+            } else if (meta.selected && !inBounds) {
+                // If not, revert back to how it was.
+                meta.selected = false;
                 tile.tint = 0xffffff;
-                game.add.tween(tile).to({ isoZ: 0 }, 200, Phaser.Easing.Quadratic.InOut, true);
             }
         });
+
+        const cursors = this._inputCursorKeys;
+        if (cursors.up.isDown) {
+            game.camera.y -= 4;
+        } else if (cursors.down.isDown) {
+            game.camera.y += 4;
+        }
+
+        if (cursors.left.isDown) {
+            game.camera.x -= 4;
+        } else if (cursors.right.isDown) {
+            game.camera.x += 4;
+        }
     }
 
 
     spawnTiles() {
-
-        const frames = this._game.cache.getFrameData('tileset').getFrames();
         const tiles = [
-            9, 2, 1, 1, 4, 4, 1, 6, 2, 10, 2,
-            2, 6, 1, 0, 4, 4, 0, 0, 2, 2, 2,
-            6, 1, 0, 0, 4, 4, 0, 0, 8, 8, 2,
-            0, 0, 0, 0, 4, 4, 0, 0, 0, 9, 2,
-            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
-            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
-            11, 11, 12, 11, 3, 3, 11, 12, 11, 11, 11,
-            3, 7, 3, 3, 3, 3, 3, 3, 7, 3, 3,
-            7, 1, 7, 7, 3, 3, 7, 7, 1, 1, 7
+            73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73,
+            73, 123, 74, 74, 74, 74, 74, 74, 74, 126, 73,
+            73, 82, 21, 29, 67, 67, 67, 67, 67, 82, 73,
+            73, 82, 28, 36, 67, 67, 67, 67, 67, 82, 73,
+            73, 82, 67, 67, 67, 67, 55, 63, 67, 82, 73,
+            73, 82, 67, 67, 67, 67, 62, 70, 67, 82, 73,
+            73, 82, 67, 67, 67, 67, 67, 67, 67, 82, 73,
+            73, 82, 67, 67, 67, 67, 67, 67, 67, 82, 73,
+            73, 82, 67, 67, 67, 67, 67, 67, 67, 82, 73,
+            73, 125, 74, 74, 74, 74, 74, 74, 74, 127, 73,
+            73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73
         ];
 
         const mapTilesWidth = 11, mapTilesHeight = 11;
-        let maxFrameWidth: number, maxFrameHeight: number, maxFrameCenterY:number;
         const game = this._game;
-        let x = 0, y = 0;
-        for (let tileY = 0; tileY < mapTilesHeight; ++tileY) {
-            x = 0;
-            maxFrameWidth = 0;
-            maxFrameHeight = 0;
-            maxFrameCenterY = 0;
-            for (let tileX = 0; tileX < mapTilesWidth; ++tileX, ++x) {
-                const tileIndex = (tileY * mapTilesWidth) + tileX;
+
+        const tileIsoWidth = 71, tileIsoHeight = 71;
+        const mapIsoWidth = mapTilesWidth * tileIsoWidth;
+        const mapIsoHeight = mapTilesHeight * tileIsoHeight;
+        let tile;
+        for (let x = 0, isoX = 0; isoX < mapIsoWidth; isoX += tileIsoWidth, ++x) {
+            for (let y = 0, isoY = 0; isoY < mapIsoHeight; isoY += tileIsoHeight, ++y) {
+
+                const tileIndex = (y * mapTilesWidth) + x;
                 const frameIndex = tiles[tileIndex];
-                const frame = frames[frameIndex];
-                let tile = game.add['isoSprite'](
-                    x,
-                    y,
-                    0,
-                    'tileset',
-                    frameIndex,
-                    this._isoGroup);
-
-                if (frame.width > maxFrameWidth) {
-                    maxFrameWidth = frame.width;
+                let isoZ = 0;
+                switch (frameIndex) {
+                    case 36:
+                        isoZ += 32;
+                        break;
+                    case 70:
+                        isoZ -= 16;
+                        break;
                 }
-
-                if (frame.height > maxFrameHeight) {
-                    maxFrameHeight = frame.height;
-                }
-
-                if (frame.centerY > maxFrameCenterY) {
-                    maxFrameCenterY = frame.centerY;
-                }
-
-                x += frame.width - (frame.centerX - 5);
-
-                tile.anchor.set(0.5, 1);
+                tile = game.add['isoSprite'](isoX, isoY, isoZ, 'landscape', frameIndex, this._isoGroup);
+                tile.anchor.set(0.5, 0);
                 tile.smoothed = false;
                 tile.body.moves = false;
             }
-            y += maxFrameHeight - (maxFrameCenterY - 5);
         }
     }
 }
