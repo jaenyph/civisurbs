@@ -48,8 +48,8 @@ export class MapComponent {
         saveCpu.renderOnFPS = 9;
         saveCpu.renderOnPointerChange = false;
 
+        game.load.atlasJSONHash('tileset', './assets/roadTiles/atlas.png', 'assets/roadTiles/atlas.json');
 
-        game.load.image('tile', './assets/tile.png');
 
         game.time.advancedTiming = true;
 
@@ -58,12 +58,17 @@ export class MapComponent {
 
         // This is used to set a game canvas-based offset for the 0, 0, 0 isometric coordinate - by default
         // this point would be at screen coordinates 0, 0 (top left) which is usually undesirable.
-        game['iso'].anchor.setTo(0.5, 0.2);
+        game['iso'].anchor.setTo(0.5, 0.1);
     }
 
     private gameCreate() {
         // Create a group for our tiles.
         this._isoGroup = this._game.add.group();
+
+        // we won't really be using IsoArcade physics, but I've enabled it anyway so the debug bodies can be seen
+        this._game.physics.startSystem(Phaser.Plugin.Isometric.ISOARCADE);
+        this._isoGroup.enableBody = true;
+        this._isoGroup.physicsBodyType = Phaser.Plugin.Isometric.ISOARCADE;
 
         // Let's make a load of tiles on a grid.
         this.spawnTiles();
@@ -108,14 +113,62 @@ export class MapComponent {
 
 
     spawnTiles() {
-        let tile;
-        for (let xx = 0; xx < 256; xx += 38) {
-            for (let yy = 0; yy < 256; yy += 38) {
-                // Create a tile using the new game.add.isoSprite factory method at the specified position.
-                // The last parameter is the group you want to add it to (just like game.add.sprite)
-                tile = this._game.add['isoSprite'](xx, yy, 0, 'tile', 0, this._isoGroup);
-                tile.anchor.set(0.5, 0);
+
+        const frames = this._game.cache.getFrameData('tileset').getFrames();
+        const tiles = [
+            9, 2, 1, 1, 4, 4, 1, 6, 2, 10, 2,
+            2, 6, 1, 0, 4, 4, 0, 0, 2, 2, 2,
+            6, 1, 0, 0, 4, 4, 0, 0, 8, 8, 2,
+            0, 0, 0, 0, 4, 4, 0, 0, 0, 9, 2,
+            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0,
+            11, 11, 12, 11, 3, 3, 11, 12, 11, 11, 11,
+            3, 7, 3, 3, 3, 3, 3, 3, 7, 3, 3,
+            7, 1, 7, 7, 3, 3, 7, 7, 1, 1, 7
+        ];
+
+        const mapTilesWidth = 11, mapTilesHeight = 11;
+        let maxFrameWidth: number, maxFrameHeight: number, maxFrameCenterY:number;
+        const game = this._game;
+        let x = 0, y = 0;
+        for (let tileY = 0; tileY < mapTilesHeight; ++tileY) {
+            x = 0;
+            maxFrameWidth = 0;
+            maxFrameHeight = 0;
+            maxFrameCenterY = 0;
+            for (let tileX = 0; tileX < mapTilesWidth; ++tileX, ++x) {
+                const tileIndex = (tileY * mapTilesWidth) + tileX;
+                const frameIndex = tiles[tileIndex];
+                const frame = frames[frameIndex];
+                let tile = game.add['isoSprite'](
+                    x,
+                    y,
+                    0,
+                    'tileset',
+                    frameIndex,
+                    this._isoGroup);
+
+                if (frame.width > maxFrameWidth) {
+                    maxFrameWidth = frame.width;
+                }
+
+                if (frame.height > maxFrameHeight) {
+                    maxFrameHeight = frame.height;
+                }
+
+                if (frame.centerY > maxFrameCenterY) {
+                    maxFrameCenterY = frame.centerY;
+                }
+
+                x += frame.width - (frame.centerX - 5);
+
+                tile.anchor.set(0.5, 1);
+                tile.smoothed = false;
+                tile.body.moves = false;
             }
+            y += maxFrameHeight - (maxFrameCenterY - 5);
         }
     }
 }
