@@ -17,3 +17,4 @@ client/scripts/lib/corejs/**
 client/scripts/lib/zonejs/**
 client/scripts/lib/systemjs/**
 client/scripts/lib/rxjs/**
+client/scripts/lib/phaser/**
