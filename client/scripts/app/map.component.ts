@@ -202,7 +202,7 @@ export class MapComponent {
 
                 // pass the coordinates to the appropriate handler
                 drawer[event.type](coors);
-            }
+            };
 
 
             // attach the touchstart, touchmove, touchend event listeners.
@@ -224,7 +224,7 @@ export class MapComponent {
                 const updatePosition = (nativeEvent: MouseEvent, canvas: HTMLCanvasElement, pointToUpdate?: Phaser.Point): Phaser.Point => {
                     const result = pointToUpdate || new Phaser.Point();
                     let x, y;
-                    if (nativeEvent.pageX != undefined && nativeEvent.pageY != undefined) {
+                    if (nativeEvent.pageX !== undefined && nativeEvent.pageY !== undefined) {
                         x = nativeEvent.pageX;
                         y = nativeEvent.pageY;
                     } else {
@@ -233,7 +233,7 @@ export class MapComponent {
                     }
 
                     return result.set(x - canvas.offsetLeft, y - canvas.offsetTop);
-                }
+                };
 
                 const canvas = mouseEvent.target as HTMLCanvasElement;
 
