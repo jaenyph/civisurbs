@@ -132,7 +132,7 @@ export class MapComponent {
     }
 
 
-    spawnTiles() {
+    private spawnTiles() {
         const tiles = [
             73, 73, 73, 73, 73, 73, 73, 73, 73, 73, 73,
             73, 123, 74, 74, 74, 74, 74, 74, 74, 126, 73,
