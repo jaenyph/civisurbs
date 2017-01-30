@@ -81,8 +81,12 @@ export class MapComponent {
         game.world.setBounds(0, 0, 1920, 1920);
         this._inputCursorKeys = game.input.keyboard.createCursorKeys();
 
-        this.initializePanningEvents();
+        this._element.nativeElement.addEventListener('contextmenu', () => false);
+        if (game.canvas) {
+            game.canvas.oncontextmenu = () => false;
+        }
 
+        this.initializePanningEvents();
 
         // Create a group for our tiles.
         this._isoGroup = this._game.add.group();
