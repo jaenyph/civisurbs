@@ -1,7 +1,7 @@
 /// <reference path="../../../node_modules/phaser/typescript/phaser.d.ts" />
 /// <reference path="../lib/phaser/plugins/Isometric.d.ts" />
 
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 import 'phaser';
 import 'phaser-plugin-saveCpu';
@@ -9,11 +9,9 @@ import 'phaser-plugin-isometric';
 
 @Component({
     selector: 'cu-map',
-    template: `<h1>Map : {{status}}</h1>`
+    template: ``
 })
 export class MapComponent {
-    status = 'loaded';
-
     private _game: Phaser.Game;
     private _isoGroup: any;
     private _cursorPos: Phaser.Plugin.Isometric.Point3;
@@ -22,20 +20,27 @@ export class MapComponent {
     private _panningStartPosition: Phaser.Point;
     private _isometric: Phaser.Plugin.Isometric.Projector;
 
-    constructor() {
+    constructor(private _element: ElementRef) {
 
         this._isPanning = false;
         this._panningStartPosition = new Phaser.Point(0, 0);
+    }
 
+    ngOnInit() {
+        const element = this._element.nativeElement;
+        element.innerHTML = '';
+        const elementBox = element.parentNode.getBoundingClientRect();
         this._game = new Phaser.Game(
-            640,
-            480,
+            elementBox.width,
+            elementBox.height,
             Phaser.AUTO,
-            '',
+            element,
             null,
             false,
             false,
             false);
+
+        window.addEventListener('resize', this.processViewportResize.bind(this));
 
         this._game.state.add(
             'boot',
@@ -76,8 +81,22 @@ export class MapComponent {
         game.world.setBounds(0, 0, 1920, 1920);
         this._inputCursorKeys = game.input.keyboard.createCursorKeys();
 
+        this._element.nativeElement.addEventListener('contextmenu', () => false);
+        if (game.canvas) {
+            game.canvas.oncontextmenu = () => false;
+        }
+
         this.initializePanningEvents();
 
+
+        game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        // This is necessary to scale before waiting for window changes.
+        game.scale.refresh();
+
+        game.input.onDown.addOnce(() => {
+            this._game.scale.startFullScreen(false);
+        }, this);
 
         // Create a group for our tiles.
         this._isoGroup = this._game.add.group();
@@ -138,15 +157,6 @@ export class MapComponent {
         } else if (cursors.right.isDown) {
             game.camera.x += 4;
         }
-    }
-
-    private processPanning(game: Phaser.Game, pointerInitialPosition: Phaser.Point, pointerCurrentPosition: Phaser.Point): void {
-        const panningSpeedReducer = 0.077;
-        const deltaPosition = pointerCurrentPosition.subtract(pointerInitialPosition.x, pointerInitialPosition.y);
-        const newCameraPosition = new Phaser.Point(game.camera.x, game.camera.y)
-            .add(deltaPosition.x * panningSpeedReducer, deltaPosition.y * panningSpeedReducer);
-        game.camera.x = newCameraPosition.x;
-        game.camera.y = newCameraPosition.y;
     }
 
     private initializePanningEvents() {
@@ -272,6 +282,19 @@ export class MapComponent {
             }, false);
 
         }
+    }
+
+    private processPanning(game: Phaser.Game, pointerInitialPosition: Phaser.Point, pointerCurrentPosition: Phaser.Point): void {
+        const panningSpeedReducer = 0.077;
+        const deltaPosition = pointerCurrentPosition.subtract(pointerInitialPosition.x, pointerInitialPosition.y);
+        const newCameraPosition = new Phaser.Point(game.camera.x, game.camera.y)
+            .add(deltaPosition.x * panningSpeedReducer, deltaPosition.y * panningSpeedReducer);
+        game.camera.x = newCameraPosition.x;
+        game.camera.y = newCameraPosition.y;
+    }
+
+    private processViewportResize() {
+        this._game.scale.setGameSize(window.innerWidth, window.innerHeight);
     }
 
     private spawnTiles() {
