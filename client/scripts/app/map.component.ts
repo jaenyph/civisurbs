@@ -1,7 +1,7 @@
 /// <reference path="../../../node_modules/phaser/typescript/phaser.d.ts" />
 /// <reference path="../lib/phaser/plugins/Isometric.d.ts" />
 
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 import 'phaser';
 import 'phaser-plugin-saveCpu';
