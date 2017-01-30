@@ -88,6 +88,16 @@ export class MapComponent {
 
         this.initializePanningEvents();
 
+
+        game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+        game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        // This is necessary to scale before waiting for window changes.
+        game.scale.refresh();
+
+        game.input.onDown.addOnce(() => {
+            this._game.scale.startFullScreen(false);
+        }, this);
+
         // Create a group for our tiles.
         this._isoGroup = this._game.add.group();
 
