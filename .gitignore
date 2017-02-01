@@ -18,3 +18,8 @@ client/scripts/lib/zonejs/**
 client/scripts/lib/systemjs/**
 client/scripts/lib/rxjs/**
 client/scripts/lib/phaser/**
+
+# Discard the client contents imported from npm :
+client/styles/bulma.*
+client/fonts/FontAwesome*
+client/fonts/fontawesome*
