@@ -58,7 +58,7 @@
   },
   "scripts": {
     "start": "npm run build-client && concurrently \"npm run tsw-client\" \"npm run run-client\" ",
-    "build-client": "npm run import-client-libs && import-client-contents && tsc --project client",
+    "build-client": "concurrently \"npm run import-client-libs\" \"npm run import-client-contents\" && tsc --project client",
     "import-client-libs" : "gulp import-client-libs",
     "import-client-contents" : "gulp import-client-contents",
     "tsw-client": "tsc --project client -w",
